@@ -4,6 +4,13 @@ import webbrowser
 import requests
 import speech_recognition as sr
 import pyttsx3
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+RAPID_API_KEY = os.environ.get("RAPID_API_KEY")
+
 
 
 def initialize_engine():
@@ -36,7 +43,7 @@ def ask_chatgpt(command):
     payload = { "query": command }
     headers = {
         "content-type": "application/json",
-        "X-RapidAPI-Key": "78a33eacfamshe99f5ee6919a4a7p1ce685jsnf9d39c560f66",
+        "X-RapidAPI-Key": RAPID_API_KEY,
         "X-RapidAPI-Host": "chatgpt-gpt4-ai-chatbot.p.rapidapi.com"
     }
 
